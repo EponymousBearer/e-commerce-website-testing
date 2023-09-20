@@ -88,7 +88,6 @@ export async function shopifyFetch<T>({
     });
 
     const body = await result.json();
-
     if (body.errors) {
       throw body.errors[0];
     }
@@ -344,7 +343,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       handle
     }
   });
-
+  console.log('res', res);
   return (
     res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
       title: item.title,
